@@ -1,4 +1,10 @@
-// Adding PNLF device for IntelBacklight.kext or AppleBacklight.kext+AppleBacklightFixup.kext
+// Adding PNLF device for WhateverGreen.kext and others.
+// This is a modified PNLF version originally taken from RehabMan/OS-X-Clover-Laptop-Config repository:
+// https://raw.githubusercontent.com/RehabMan/OS-X-Clover-Laptop-Config/master/hotpatch/SSDT-PNLF.dsl
+// Rename GFX0 to anything else if your IGPU name is different.
+//
+// Licensed under GNU General Public License v2.0
+// https://github.com/RehabMan/OS-X-Clover-Laptop-Config/blob/master/License.md
 
 #define FBTYPE_SANDYIVY 1
 #define FBTYPE_HSWPLUS 2
@@ -12,7 +18,7 @@
 #define COFFEELAKE_PWMMAX 0xffff
 
 #ifndef NO_DEFINITIONBLOCK
-DefinitionBlock("", "SSDT", 2, "X240", "_PNLF", 0)
+DefinitionBlock("", "SSDT", 2, "Sniki", "_PNLF", 0)
 {
 #endif
     External(RMCF.BKLT, IntObj)
@@ -31,16 +37,16 @@ DefinitionBlock("", "SSDT", 2, "X240", "_PNLF", 0)
     Device(_SB.PCI0.IGPU.PNLF)
     {
         Name(_ADR, Zero)
-        Name(_HID, EisaId ("APP0002"))
+        Name(_HID, EisaId("APP0002"))
         Name(_CID, "backlight")
-        // _UID is set depending on PWMMax to match profiles in AppleBacklightFixup.kext Info.plist
+        // _UID is set depending on PWMMax to match profiles in WhateverGreen.kext Info.plist
         // 14: Sandy/Ivy 0x710
         // 15: Haswell/Broadwell 0xad9
         // 16: Skylake/KabyLake 0x56c (and some Haswell, example 0xa2e0008)
         // 17: custom LMAX=0x7a1
         // 18: custom LMAX=0x1499
         // 19: CoffeeLake 0xffff
-        // 99: Other (requires custom AppleBacklightInjector.kext/AppleBackightFixup.kext)
+        // 99: Other (requires custom AppleBacklightInjector.kext/WhateverGreen.kext)
         Name(_UID, 0)
         Name(_STA, 0x0B)
 
@@ -147,7 +153,7 @@ DefinitionBlock("", "SSDT", 2, "X240", "_PNLF", 0)
                 // change/scale only if different than current...
                 Local1 = ^LEVX >> 16
                 If (!Local1) { Local1 = Local2 }
-                If (Local2 != Local1)
+                If (!(8 & Local4) && Local2 != Local1)
                 {
                     // set new backlight PWMMax but retain current backlight level by scaling
                     Local0 = (^LEVL * Local2) / Local1
@@ -180,7 +186,7 @@ DefinitionBlock("", "SSDT", 2, "X240", "_PNLF", 0)
                 // change/scale only if different than current...
                 Local1 = ^LEVX
                 If (!Local1) { Local1 = Local2 }
-                If (Local2 != Local1)
+                If (!(8 & Local4) && Local2 != Local1)
                 {
                     // set new backlight PWMMax but retain current backlight level by scaling
                     Local0 = (^LEVD * Local2) / Local1
@@ -228,7 +234,7 @@ DefinitionBlock("", "SSDT", 2, "X240", "_PNLF", 0)
                 // change/scale only if different than current...
                 Local1 = ^LEVX >> 16
                 If (!Local1) { Local1 = Local2 }
-                If (Local2 != Local1)
+                If (!(8 & Local4) && Local2 != Local1)
                 {
                     // set new backlight PWMAX but retain current backlight level by scaling
                     Local0 = (((^LEVX & 0xFFFF) * Local2) / Local1) | (Local2 << 16)
@@ -252,5 +258,3 @@ DefinitionBlock("", "SSDT", 2, "X240", "_PNLF", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF
-

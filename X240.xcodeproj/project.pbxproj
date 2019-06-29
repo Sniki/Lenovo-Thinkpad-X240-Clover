@@ -10,15 +10,19 @@
 		DF67BA4622B5B6C10009A900 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		DF67BA4722B5B6C10009A900 /* hotpatch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hotpatch; sourceTree = "<group>"; };
 		DF67BA4822B5B6D50009A900 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
-		DF67BA4922B5B86C0009A900 /* SSDT-X240.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-X240.aml"; sourceTree = "<group>"; };
+		DFA907EF22C82B4D0038418B /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
+		DFA907F022C82B5C0038418B /* kexts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = kexts; sourceTree = "<group>"; };
+		DFA907F122C82B9F0038418B /* SSDT-X240.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-X240.aml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		DF67BA3F22B5B65D0009A900 = {
 			isa = PBXGroup;
 			children = (
-				DF67BA4922B5B86C0009A900 /* SSDT-X240.aml */,
+				DFA907F122C82B9F0038418B /* SSDT-X240.aml */,
 				DF67BA4622B5B6C10009A900 /* config.plist */,
+				DFA907F022C82B5C0038418B /* kexts */,
+				DFA907EF22C82B4D0038418B /* Themes */,
 				DF67BA4822B5B6D50009A900 /* Audio */,
 				DF67BA4722B5B6C10009A900 /* hotpatch */,
 			);
