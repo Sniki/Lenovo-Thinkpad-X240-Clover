@@ -12,6 +12,10 @@
 			<false/>
 			<key>Fixes</key>
 			<dict>
+				<key>AddMCHC</key>
+				<true/>
+				<key>AddPNLF</key>
+				<true/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
@@ -57,16 +61,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change XHCI to XHC</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>WEhDSQ==</data>
-					<key>Replace</key>
-					<data>WEhDXw==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>Change SAT1 to SATA</string>
 					<key>Disabled</key>
 					<false/>
@@ -104,16 +98,6 @@
 					<data>VklEXwhfQURSDAAAAgA=</data>
 					<key>Replace</key>
 					<data>SUdQVQhfQURSDAAAAgA=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Change Method(_PTS,1,N) to ZPTS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X1BUUwE=</data>
-					<key>Replace</key>
-					<data>WlBUUwE=</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -174,16 +158,6 @@
 					<data>R0JTVAQ=</data>
 					<key>Replace</key>
 					<data>WEJTVAQ=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Change Method(L0D,0,N) to XL0D</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>X0wwRA==</data>
-					<key>Replace</key>
-					<data>WEwwRA==</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -393,20 +367,12 @@
 				<data>AACQAA==</data>
 				<key>framebuffer-patch-enable</key>
 				<integer>1</integer>
-				<key>## @1 HDMI</key>
-				<string></string>
-				<key>framebuffer-con1-alldata</key>
-				<data>AQUSAAAEAACHAAAA</data>
 				<key>framebuffer-con1-enable</key>
 				<integer>1</integer>
-				<key>## @2 VGA</key>
-				<string></string>
+				<key>framebuffer-con1-alldata</key>
+				<data>AQUSAAAEAACHAAAA</data>
 				<key>framebuffer-con2-enable</key>
 				<integer>1</integer>
-				<key>framebuffer-con2-flags</key>
-				<data>BgAAAA==</data>
-				<key>framebuffer-con2-pipe</key>
-				<data>EgAAAA==</data>
 				<key>framebuffer-con2-type</key>
 				<data>AAEAAA==</data>
 			</dict>
@@ -434,6 +400,10 @@
 			<key>Inject</key>
 			<true/>
 		</dict>
+		<key>SetIntelBacklight</key>
+		<true/>
+		<key>SetIntelMaxBacklight</key>
+		<true/>
 		<key>UseIntelHDMI</key>
 		<false/>
 	</dict>
@@ -484,9 +454,7 @@
 			<true/>
 		</dict>
 		<key>Theme</key>
-		<string>Embedded</string>
-		<key>EmbeddedThemeType</key>
-		<string>Dark</string>
+		<string>ThinkPad</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -506,10 +474,6 @@
 		<true/>
 		<key>DellSMBIOSPatch</key>
 		<false/>
-		<key>ForceKextsToLoad</key>
-		<array>
-			<string>\System\Library\Extensions\IONetworkingFamily.kext</string>
-		</array>
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>

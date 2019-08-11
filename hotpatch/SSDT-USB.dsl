@@ -1,13 +1,14 @@
-// USB Port Injector for Lenovo ThinkPad X240 (TouchScreen)
+// Lenovo ThinkPad X240 USB Ports Injector
+// Disabled FingerPrint Reader as they are not supported on macOS
 
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
 {
-#endif
+    #endif
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
-
+        
         Name(RMCF, Package()
         {
             "HUB1", Package()
@@ -15,9 +16,10 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
                 "port-count", Buffer() { 8, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HP15", Package() // TouchScreen
+                    "HP15", Package() // EMV Smart Card Reader
                     {
-                        "portType", 0,
+                        //"UsbConnector", 0,
+                        "portType", 2,
                         "port", Buffer() { 5, 0, 0, 0 },
                     },
                 },
@@ -32,39 +34,49 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
                         "UsbConnector", 255,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                 },
+                },
             },
             "8086_9c31", Package()
             {
                 "port-count", Buffer() { 13, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HS01", Package() // USB3 Port (2.0 Device)
+                    "HS01", Package() // USB3 Port (Right)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    "HS02", Package() // USB3 Port (2.0 Device)
+                    "HS02", Package() // USB3 Port (Left)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    "HS07", Package() // Internal Camera
+                    "HS04", Package() // (WWAN) Sierra Wireless 4G LTE
+                    {
+                        "UsbConnector", 255,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    //"HS06", Package() // FingerPrint Reader
+                    //{
+                    //"UsbConnector", 255,
+                    //"port", Buffer() { 6, 0, 0, 0 },
+                    //},
+                    "HS07", Package() // Bluetooth (Intel)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 7, 0, 0, 0 },
                     },
-                    "HS08", Package() // Bluetooth
+                    "HS08", Package() // Integrated Camera
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 8, 0, 0, 0 },
                     },
-                    "SSP1", Package() // USB3 Port
+                    "SS01", Package() // USB3 Port (Right)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 10, 0, 0, 0 },
                     },
-                    "SSP2", Package() // USB3 Port
+                    "SS02", Package() // USB3 Port (Left)
                     {
                         "UsbConnector", 3,
                         "port", Buffer() { 11, 0, 0, 0 },
@@ -73,24 +85,7 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
             },
         })
     }
-    // Disable ESEL to avoid USB Problems
-    External(_SB.PCI0.XHC, DeviceObj)
-    External(ZPTS, MethodObj)
-    External(_SB.PCI0.XHC.PMEE, FieldUnitObj)
-    Method(_SB.PCI0.XHC.ESEL)
-    {
-        // do nothing
-    }
-    // fix "auto start after shutdown if a USB Device is Plugged In"
-    Method(_PTS, 1)
-    {
-        ZPTS(Arg0)
-        If (5 == Arg0)
-        {
-            \_SB.PCI0.XHC.PMEE = 0
-        }
-    }
-#ifndef NO_DEFINITIONBLOCK
+    #ifndef NO_DEFINITIONBLOCK
 }
 #endif
 //EOF
