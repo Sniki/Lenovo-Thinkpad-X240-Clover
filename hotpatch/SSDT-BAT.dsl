@@ -4,7 +4,7 @@
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "X240", "_BAT", 0)
 {
-    #endif
+#endif
     External(_SB.PCI0.LPC.EC, DeviceObj)
     External(BATM, MutexObj)
     External(HIID, FieldUnitObj)
@@ -274,6 +274,6 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_BAT", 0)
             }
         }
     }
-    #ifndef NO_DEFINITIONBLOCK
+#ifndef NO_DEFINITIONBLOCK
 }
 #endif

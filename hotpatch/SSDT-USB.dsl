@@ -4,7 +4,7 @@
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
 {
-    #endif
+#endif
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
@@ -85,7 +85,6 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
             },
         })
     }
-    #ifndef NO_DEFINITIONBLOCK
+#ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF

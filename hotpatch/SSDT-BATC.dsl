@@ -259,4 +259,3 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_BATC", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-// EOF

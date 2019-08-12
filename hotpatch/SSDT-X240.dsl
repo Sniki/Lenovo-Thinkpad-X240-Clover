@@ -8,7 +8,6 @@ DefinitionBlock("", "SSDT", 2, "X240", "_X240", 0)
     #include "SSDT-BATC.dsl"
     #include "SSDT-WAK.dsl"
     #include "SSDT-USB.dsl"
-    #include "SSDT-ALC3232.dsl"
     #include "SSDT-ESEL.dsl"
+    #include "SSDT-ALC3232.dsl"
 }
-//EOF

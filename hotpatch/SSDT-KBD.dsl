@@ -102,4 +102,3 @@ DefinitionBlock("", "SSDT", 2, "X240", "_KBD", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF

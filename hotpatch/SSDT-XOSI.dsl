@@ -39,4 +39,3 @@ DefinitionBlock("", "SSDT", 2, "X240", "_XOSI", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF

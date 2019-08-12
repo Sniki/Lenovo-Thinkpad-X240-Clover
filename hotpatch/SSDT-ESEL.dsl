@@ -1,10 +1,10 @@
-// Disabling ESEL
+// Disable ESEL
 
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "X240", "_ESEL", 0)
 {
 #endif
-    External(_SB.PCI0.XHC.ESEL, MethodObj)
+    External(_SB.PCI0.XHC, DeviceObj)
     Method(_SB.PCI0.XHC.ESEL)
     {
         // do nothing
@@ -12,4 +12,3 @@ DefinitionBlock("", "SSDT", 2, "X240", "_ESEL", 0)
 #ifndef NO_DEFINITIONBLOCK
 }
 #endif
-//EOF
