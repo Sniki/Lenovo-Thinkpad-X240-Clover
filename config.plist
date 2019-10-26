@@ -8,8 +8,6 @@
 		<true/>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<false/>
 			<key>Fixes</key>
 			<dict>
 				<key>AddMCHC</key>
@@ -21,8 +19,6 @@
 				<key>FixIPIC</key>
 				<true/>
 				<key>FixMutex</key>
-				<true/>
-				<key>FixRTC</key>
 				<true/>
 				<key>FixTMR</key>
 				<true/>
@@ -71,36 +67,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change B0D3 to HDAU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>QjBEMw==</data>
-					<key>Replace</key>
-					<data>SERBVQ==</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change PCI0.VID to IGPU #1 (Thinkpad)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>UENJMFZJRF8=</data>
-					<key>Replace</key>
-					<data>UENJMElHUFU=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change PCI0.VID to IGPU #2 (Thinkpad)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>VklEXwhfQURSDAAAAgA=</data>
-					<key>Replace</key>
-					<data>SUdQVQhfQURSDAAAAgA=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>Change Method(_WAK,1,N) to ZWAK</string>
 					<key>Disabled</key>
 					<false/>
@@ -121,17 +87,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Instant Wake Fix 1(_PRW 0x6d, 0x03) to (0x6d, 0)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>EhUDCm0KA14=</data>
-					<key>Replace</key>
-					<data>EhUDCm0KAF4=</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Instant Wake Fix 2(_PRW 0x6d, 0x04) to (0x6d, 0)</string>
+					<string>Instant Wake Fix (_PRW 0x6d, 0x04) to (0x6d, 0)</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -231,7 +187,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(_Q6A,0,N) to XQ28</string>
+					<string>Change Method(_Q6A,0,N) to XQ6A</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -241,7 +197,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(_Q16,0,N) to XQ19</string>
+					<string>Change Method(_Q16,0,N) to XQ16</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -251,7 +207,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(_Q64,0,N) to XQ2A</string>
+					<string>Change Method(_Q64,0,N) to XQ64</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -307,38 +263,21 @@
 			<string>SSDT-XCPM.aml</string>
 			<string>SSDT-PluginType1.aml</string>
 		</array>
-		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>#MCFG</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-		</array>
-		<key>FixHeaders</key>
-		<true/>
 		<key>SSDT</key>
 		<dict>
-			<key>DropOem</key>
-			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
 				<true/>
 			</dict>
-			<key>NoOemTableId</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
-		<key>#DefaultVolume</key>
+		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
-		<string>dart=0 -cdfon</string>
+		<string>-cdfon -igfxnohdmi</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -350,11 +289,6 @@
 	<string>This file is for Lenovo Thinkpad X240</string>
 	<key>Devices</key>
 	<dict>
-		<key>Audio</key>
-		<dict>
-			<key>Inject</key>
-			<integer>0</integer>
-		</dict>
 		<key>Properties</key>
 		<dict>
 			<key>PciRoot(0)/Pci(0x02,0)</key>
@@ -365,47 +299,38 @@
 				<data>EgQAAA==</data>
 				<key>framebuffer-cursormem</key>
 				<data>AACQAA==</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>AAAAgA==</data>
 				<key>framebuffer-patch-enable</key>
-				<integer>1</integer>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-enable</key>
-				<integer>1</integer>
+				<data>AQAAAA==</data>
 				<key>framebuffer-con1-alldata</key>
 				<data>AQUSAAAEAACHAAAA</data>
 				<key>framebuffer-con2-enable</key>
-				<integer>1</integer>
-				<key>framebuffer-con2-type</key>
-				<data>AAEAAA==</data>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con2-alldata</key>
+				<data>AgQSABAAAACHAAAA</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x03,0)</key>
 			<dict>
 				<key>#Comment</key>
 				<string>Intel HDMI Audio Codec</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<data>HAAAAA==</data>
 			</dict>
 			<key>PciRoot(0)/Pci(0x1b,0)</key>
 			<dict>
 				<key>#Comment</key>
 				<string>Realtek ALC3232 Audio Codec</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<data>HAAAAA==</data>
 			</dict>
-		</dict>
-		<key>USB</key>
-		<dict>
-			<key>AddClockID</key>
-			<true/>
-			<key>FixOwnership</key>
-			<true/>
-			<key>Inject</key>
-			<true/>
 		</dict>
 		<key>SetIntelBacklight</key>
 		<true/>
 		<key>SetIntelMaxBacklight</key>
 		<true/>
-		<key>UseIntelHDMI</key>
-		<false/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -456,26 +381,8 @@
 		<key>Theme</key>
 		<string>ThinkPad</string>
 	</dict>
-	<key>Graphics</key>
-	<dict>
-		<key>Inject</key>
-		<dict>
-			<key>ATI</key>
-			<false/>
-			<key>Intel</key>
-			<false/>
-			<key>NVidia</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>AppleRTC</key>
-		<true/>
-		<key>DellSMBIOSPatch</key>
-		<false/>
-		<key>KernelLapic</key>
-		<true/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
@@ -511,8 +418,6 @@
 				<data>igKEwOtC</data>
 			</dict>
 		</array>
-		<key>KextsToPatch</key>
-		<array/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>

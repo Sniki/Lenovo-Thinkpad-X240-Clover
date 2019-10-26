@@ -10,7 +10,7 @@
 		DF67BA4622B5B6C10009A900 /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		DF67BA4722B5B6C10009A900 /* hotpatch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = hotpatch; sourceTree = "<group>"; };
 		DF67BA4822B5B6D50009A900 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
-		DFA13E182301AB3E0005ABD5 /* SSDT-X240.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-X240.aml"; sourceTree = "<group>"; };
+		DF942B0A2364D90C0022D8D0 /* SSDT-X240.aml */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SSDT-X240.aml"; sourceTree = "<group>"; };
 		DFA907EF22C82B4D0038418B /* Themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Themes; sourceTree = "<group>"; };
 		DFA907F022C82B5C0038418B /* kexts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = kexts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -19,8 +19,8 @@
 		DF67BA3F22B5B65D0009A900 = {
 			isa = PBXGroup;
 			children = (
-				DFA13E182301AB3E0005ABD5 /* SSDT-X240.aml */,
 				DF67BA4622B5B6C10009A900 /* config.plist */,
+				DF942B0A2364D90C0022D8D0 /* SSDT-X240.aml */,
 				DFA907F022C82B5C0038418B /* kexts */,
 				DFA907EF22C82B4D0038418B /* Themes */,
 				DF67BA4822B5B6D50009A900 /* Audio */,
@@ -34,7 +34,7 @@
 		DF67BA4022B5B65D0009A900 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1110;
 			};
 			buildConfigurationList = DF67BA4322B5B65D0009A900 /* Build configuration list for PBXProject "X240" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -42,6 +42,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = DF67BA3F22B5B65D0009A900;
 			projectDirPath = "";
