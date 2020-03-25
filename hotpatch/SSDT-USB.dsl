@@ -1,11 +1,8 @@
 // Lenovo ThinkPad X240 USB Ports Injector including Dock Support
 // Disabled FingerPrint Reader as it is not supported in macOS
-// Disabled ESEL to avoid USB problems
 
-#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
 {
-#endif
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
@@ -56,7 +53,7 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
                         "UsbConnector", 3,
                         "port", Buffer() { 3, 0, 0, 0 },
                     },
-                    "HS04", Package() // (WWAN) Sierra Wireless 4G LTE
+                    "HS04", Package() // (WWAN)
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 4, 0, 0, 0 },
@@ -66,7 +63,7 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
                     //"UsbConnector", 255,
                     //"port", Buffer() { 6, 0, 0, 0 },
                     //},
-                    "HS07", Package() // Bluetooth (Intel)
+                    "HS07", Package() // Bluetooth
                     {
                         "UsbConnector", 255,
                         "port", Buffer() { 7, 0, 0, 0 },
@@ -95,11 +92,4 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_USB", 0)
             },
         })
     }
-    External(_SB.PCI0.XHC, DeviceObj)
-    Method(_SB.PCI0.XHC.ESEL)
-    {
-        // do nothing
-    }
-#ifndef NO_DEFINITIONBLOCK
 }
-#endif
