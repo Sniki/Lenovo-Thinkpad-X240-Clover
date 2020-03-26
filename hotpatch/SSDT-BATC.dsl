@@ -4,9 +4,9 @@
 
 DefinitionBlock ("", "SSDT", 2, "X240", "_BATC", 0)
 {
-    External(_SB.PCI0.LPC.EC, DeviceObj)
-    External(_SB.PCI0.LPC.EC.BATM, MutexObj)
-    External(_SB.PCI0.LPC.EC.HIID, FieldUnitObj)
+    External (_SB.PCI0.LPC.EC, DeviceObj)
+    External (_SB.PCI0.LPC.EC.BATM, MutexObj)
+    External (_SB.PCI0.LPC.EC.HIID, FieldUnitObj)
     //
     External (CLPM, MethodObj)
     External (HB0A, MethodObj)
@@ -17,15 +17,15 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_BATC", 0)
     External (_SB.PCI0.LPC.EC.BAT1.XB1S, FieldUnitObj)
     External (_SB.PCI0.LPC.EC.BAT1.B1ST, FieldUnitObj)
     //
-    External(_SB.PCI0.LPC.EC.XBIF, MethodObj)
-    External(_SB.PCI0.LPC.EC.XBST, MethodObj)
-    External(_SB.PCI0.LPC.EC.XQ22, MethodObj)
-    External(_SB.PCI0.LPC.EC.XQ4A, MethodObj)
-    External(_SB.PCI0.LPC.EC.XQ4B, MethodObj)
-    External(_SB.PCI0.LPC.EC.XQ4D, MethodObj)
-    External(_SB.PCI0.LPC.EC.XQ24, MethodObj)
-    External(_SB.PCI0.LPC.EC.XQ25, MethodObj)
-    External(_SB.PCI0.LPC.EC.XATW, MethodObj)
+    External (_SB.PCI0.LPC.EC.XBIF, MethodObj)
+    External (_SB.PCI0.LPC.EC.XBST, MethodObj)
+    External (_SB.PCI0.LPC.EC.XQ22, MethodObj)
+    External (_SB.PCI0.LPC.EC.XQ4A, MethodObj)
+    External (_SB.PCI0.LPC.EC.XQ4B, MethodObj)
+    External (_SB.PCI0.LPC.EC.XQ4D, MethodObj)
+    External (_SB.PCI0.LPC.EC.XQ24, MethodObj)
+    External (_SB.PCI0.LPC.EC.XQ25, MethodObj)
+    External (_SB.PCI0.LPC.EC.XATW, MethodObj)
     
     Method (B1B2, 2, NotSerialized)
     {
@@ -42,7 +42,7 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_BATC", 0)
         Or (Arg0, ShiftLeft (Local0, 0x08), Local0)
         Return (Local0)
     }
-    Scope(\_SB.PCI0.LPC.EC)
+    Scope(_SB.PCI0.LPC.EC)
     {
         External(BAT0, DeviceObj)
         External(BAT0._HID, IntObj)
@@ -287,9 +287,6 @@ DefinitionBlock ("", "SSDT", 2, "X240", "_BATC", 0)
         {
             Offset (0xA0),
             BBM0,8,BBM1,8,
-            //SBMD,   16,
-            Offset (0xA4),
-            BCC0,8,BCC1,8,
         }
         Field (ECR1, ByteAcc, NoLock, Preserve)
         {

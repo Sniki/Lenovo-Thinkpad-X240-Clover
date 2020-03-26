@@ -5,7 +5,7 @@
 
 DefinitionBlock ("", "SSDT", 1, "Sniki", "_ALC3232", 0)
 {
-    External(_SB.PCI0.HDEF, DeviceObj)
+    External (_SB.PCI0.HDEF, DeviceObj)
     Name(_SB.PCI0.HDEF.RMCF, Package()
     {
         "CodecCommander", Package()

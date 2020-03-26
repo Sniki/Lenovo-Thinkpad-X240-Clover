@@ -15,7 +15,7 @@ DefinitionBlock("", "SSDT", 2, "X240", "_KBD", 0)
     External (_SB.PCI0.LPC.EC.XQ68, MethodObj)
     External (_SB.PCI0.LPC.EC.XQ69, MethodObj)
 
-    Scope (\_SB.PCI0.LPC.EC)
+    Scope (_SB.PCI0.LPC.EC)
     {
         Method (_Q14, 0, NotSerialized)  // (F15) - Brightness Up
         {
@@ -118,7 +118,7 @@ DefinitionBlock("", "SSDT", 2, "X240", "_KBD", 0)
         }
     }
 
-    Scope(\_SB.PCI0.LPC.KBD)
+    Scope(_SB.PCI0.LPC.KBD)
     {
         // Select specific configuration in VoodooPS2Trackpad.kext
         Method(_DSM, 4)
